@@ -1,0 +1,158 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+
+
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        System.out.println("Hello, World!");
+        Scanner leer = new Scanner(System.in);
+        boolean salida= true;
+
+
+
+
+    
+        Producto productoNuevo;
+        ArrayList <Producto> productos = new ArrayList<Producto>();
+        
+
+//menú interno
+    do {
+
+        //menú impreso
+        System.out.println("Seleccione una opcion");
+        System.out.println("1.Ingresar");
+        System.out.println("2.Buscar");
+        System.out.println("3.Modificar");
+        System.out.println("4.Mostrar Catalogo");
+        System.out.println("0.Salir");
+        int opcion = leer.nextInt();
+        switch (opcion) {
+            case 1:
+            agregarProducto();
+            productoNuevo= new Producto(codProduc, name, opcion, opcion, descripcion);
+            productos.add(productoNuevo);
+                break;
+
+            case 2:
+                break;
+            case 3:
+                break;
+
+            case 4:
+            for (Producto producto : productos) {
+                System.out.println("Nombre: " + producto.getName() + "Precio: " + producto.getPrecio());
+                System.out.println("");
+            
+            }
+
+
+
+                break;
+
+            case 0:
+                break;
+        
+            default:
+            System.out.println("Ingrese un valor que esté en los parametros");
+                break;
+        }
+
+    } while (salida);
+        
+
+
+
+        leer.close();
+    }
+
+
+
+
+
+
+
+
+    public static void agregarProducto(){
+        do {
+        try {
+        System.out.println("Ingrese el codigo del producto");
+        codProduc = leer.nextLine();
+        productoNuevo = new Producto(codProduc, null, 0, 0, null);
+        System.out.println("Ingrese el nombre del producto");
+        name = leer.nextLine();
+        System.out.println("Ingrese el precio del producto");
+        precio = leer.nextDouble();
+        leer.nextLine();
+        System.out.println("Ingrese el costo del producto");
+        costo=leer.nextDouble();
+        leer.nextLine();
+        System.out.println("Descripcion del producto");
+        descripcion= leer.nextLine();
+        productoNuevo = new Producto(codProduc, name, precio, costo, descripcion);
+        tryit=false;
+    } catch (Exception e) {
+        System.out.println(e);
+        System.out.println("Ingresar solamente los valores permitidos");
+    }
+} while (tryit);
+    }
+
+    public static Scanner leer = new Scanner(System.in);
+    public static String codProduc;
+    public static String name;
+    public static double precio;
+    private static double costo;
+    public static String descripcion;
+
+    public static boolean tryit= true;
+    public static Producto productoNuevo;
+
+}
+
+
+
+
+
+
+
+
+
+public class Producto {
+//Atributos principales
+    public String codProduc;
+    public String name;
+    public double precio;
+    private double costo;
+    public String descripcion;
+//constructor
+    public Producto(String codProduc, String name, double precio, double costo, String descripcion){
+        this.codProduc=codProduc;
+        this.name=name;
+        this.precio=precio;
+        this.costo=costo;
+        this.descripcion=descripcion;
+    }
+//get & set
+    public double getCosto() {
+        return costo;
+    }
+    public void setCosto(double costo) {
+        this.costo = costo;
+    }
+public String getName() {
+    return name;
+}
+public String getCodProduc() {
+    return codProduc;
+}
+public String getDescripcion() {
+    return descripcion;
+}
+public double getPrecio() {
+    return precio;
+}
+}
