@@ -1,19 +1,11 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
-
-
-
 public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
         Scanner leer = new Scanner(System.in);
         boolean salida= true;
-
-
-
-
     
         Producto productoNuevo;
         ArrayList <Producto> productos = new ArrayList<Producto>();
@@ -28,32 +20,42 @@ public class App {
         System.out.println("2.Buscar");
         System.out.println("3.Modificar");
         System.out.println("4.Mostrar Catalogo");
+        System.out.println("5.Eliiminar");
         System.out.println("0.Salir");
         int opcion = leer.nextInt();
         switch (opcion) {
             case 1:
             agregarProducto();
-            productoNuevo= new Producto(codProduc, name, opcion, opcion, descripcion);
+            productoNuevo= new Producto(codProduc, name, precio, costo, descripcion);
             productos.add(productoNuevo);
                 break;
 
             case 2:
+            System.out.println("Codigo del producto");
+            String productoABuscar = " ";
+            productoABuscar= leer.nextLine();
+            //2BuscarProducto(codProduc, productos);
+            System.out.println("si se pudo");
+
+            
                 break;
             case 3:
                 break;
 
             case 4:
-            for (Producto producto : productos) {
-                System.out.println("Nombre: " + producto.getName() + "Precio: " + producto.getPrecio());
+            for (Producto producto2 : productos) {
+                System.out.println("Nombre: " + producto2.name  + "Precio: "+ producto2.precio);
                 System.out.println("");
             
             }
+            break;
 
-
-
+            case 5:
                 break;
 
             case 0:
+            System.out.println("Gracias por visitarnos");
+            salida =false;
                 break;
         
             default:
@@ -81,7 +83,6 @@ public class App {
         try {
         System.out.println("Ingrese el codigo del producto");
         codProduc = leer.nextLine();
-        productoNuevo = new Producto(codProduc, null, 0, 0, null);
         System.out.println("Ingrese el nombre del producto");
         name = leer.nextLine();
         System.out.println("Ingrese el precio del producto");
@@ -111,7 +112,23 @@ public class App {
     public static boolean tryit= true;
     public static Producto productoNuevo;
 
+
+    public static Producto BuscarProducto (String codProduc, ArrayList <Producto> productos){
+        Producto PSearch = null;
+    for (Producto producto : productos) {
+        if (producto.codProduc.equals(codProduc)) {
+            PSearch= producto;
+            break;
+        }
+    }
+
+    return  PSearch;
+    }
 }
+
+
+//para eliminar se ocupa lista.remove(i)
+//tambien validar que el precio sea mayor que el costo
 
 
 
