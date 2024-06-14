@@ -51,6 +51,13 @@ public class App {
             break;
 
             case 5:
+            System.out.println(“Ingrese el código del producto que desea borrar”)
+
+String productoBorrar = leer.nextLine();
+int posicionElimimar = posicionProducto();
+
+eliminarProducto(posicionEliminar);
+
                 break;
 
             case 0:
@@ -124,6 +131,32 @@ public class App {
 
     return  PSearch;
     }
+public static int posicionProducto(){
+int i = 0;
+    for (Producto producto : productos) {
+  if (producto.codProduc.equals(codProduc)) {
+            Return i+1;
+           
+        }
+i++;
+    }
+
+    return  -1;
+
+}
+
+
+
+public static Producto eliminarProducto(int posicion){
+posicionProducto();
+if (posicionProducto=!(-1)) {
+productos.remove(posicion);
+System.out.println(“El producto ha sido eliminado”);
+} else {
+System.out.println(“El producto no se encuentra”)
+
+}
+
 }
 
 
