@@ -150,7 +150,7 @@ i++;
 public static Producto eliminarProducto(int posicion){
 posicionProducto();
 if (posicionProducto=!(-1)) {
-productos.remove(posicion);
+productos.remove(posicion-1);
 System.out.println(“El producto ha sido eliminado”);
 } else {
 System.out.println(“El producto no se encuentra”)
